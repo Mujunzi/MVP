@@ -1,0 +1,3 @@
+include ':app2'
+include ':app'
+rootProject.name = "Day1216_MVP1"
