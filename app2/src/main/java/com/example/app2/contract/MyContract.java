@@ -22,11 +22,11 @@ public class MyContract {
     }
 
     public interface InModel<B> {
-        void getData(NetCallBack<B> callBack);
+        void getData(String url,NetCallBack<B> callBack);
     }
 
     public interface InPresenter{
-        void getData();
+        void getData(String url);
     }
 
     public interface InView<T> {

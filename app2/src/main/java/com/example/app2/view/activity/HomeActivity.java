@@ -14,6 +14,8 @@ import com.example.app2.base.BaseActivity;
 import com.example.app2.bean.BannerBean;
 import com.example.app2.contract.MyContract;
 import com.example.app2.presenter.ImpHomePresenter;
+import com.example.app2.presenter.ImpPresenter;
+import com.example.app2.utils.net.URLConstant;
 import com.example.app2.view.fragment.NewsFragment;
 import com.example.app2.view.fragment.QueryFragment;
 import com.google.android.material.tabs.TabLayout;
@@ -34,7 +36,6 @@ public class HomeActivity extends BaseActivity<ImpHomePresenter> implements MyCo
     private NewsFragment newsFragment;
     private QueryFragment queryFragment;
     private FVAdapter adapter;
-    private ImpHomePresenter presenter;
     private ArrayList<BannerBean.BannerlistDTO> bannerList;
 
     @Override
@@ -50,7 +51,7 @@ public class HomeActivity extends BaseActivity<ImpHomePresenter> implements MyCo
         adapter = new FVAdapter(getSupportFragmentManager(), list, title);
         vp.setAdapter(adapter);
         tab.setupWithViewPager(vp);
-        presenter.getData();
+        presenter.getData(URLConstant.BANNERLIST);
     }
 
     @Override
@@ -62,8 +63,7 @@ public class HomeActivity extends BaseActivity<ImpHomePresenter> implements MyCo
 
     @Override
     protected ImpHomePresenter getPresenter() {
-        presenter = new ImpHomePresenter(this);
-        return presenter;
+        return new ImpHomePresenter(this);
     }
 
     @Override

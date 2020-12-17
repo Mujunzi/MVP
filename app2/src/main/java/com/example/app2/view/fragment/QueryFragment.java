@@ -11,7 +11,9 @@ import com.example.app2.adapter.QueryRAdapter;
 import com.example.app2.base.BaseFragment;
 import com.example.app2.bean.QueryBean;
 import com.example.app2.contract.MyContract;
+import com.example.app2.presenter.ImpPresenter;
 import com.example.app2.presenter.ImpQueryPresenter;
+import com.example.app2.utils.net.URLConstant;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,6 +24,11 @@ public class QueryFragment extends BaseFragment<ImpQueryPresenter> implements My
     private ArrayList<QueryBean.StudenlistDTO> list;
     private QueryRAdapter adapter;
 
+//    @Override
+//    protected ImpPresenter<QueryBean> getPresenter() {
+//        return new ImpPresenter<QueryBean>(this);
+//    }
+
     @Override
     protected ImpQueryPresenter getPresenter() {
         return new ImpQueryPresenter(this);
@@ -29,7 +36,7 @@ public class QueryFragment extends BaseFragment<ImpQueryPresenter> implements My
 
     @Override
     protected void initData() {
-        presenter.getData();
+        presenter.getData(URLConstant.QUERYLIST);
     }
 
     @Override

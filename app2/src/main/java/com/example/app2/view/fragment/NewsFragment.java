@@ -12,6 +12,8 @@ import com.example.app2.base.BaseFragment;
 import com.example.app2.bean.NewsBean;
 import com.example.app2.contract.MyContract;
 import com.example.app2.presenter.ImpNewPresenter;
+import com.example.app2.presenter.ImpPresenter;
+import com.example.app2.utils.net.URLConstant;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,6 +24,11 @@ public class NewsFragment extends BaseFragment<ImpNewPresenter> implements MyCon
     private ArrayList<NewsBean.NewsDTO> list;
     private NewsRAdapter adapter;
 
+//    @Override
+//    protected ImpPresenter<NewsBean> getPresenter() {
+//        return new ImpPresenter<NewsBean>(this);
+//    }
+
     @Override
     protected ImpNewPresenter getPresenter() {
         return new ImpNewPresenter(this);
@@ -29,7 +36,7 @@ public class NewsFragment extends BaseFragment<ImpNewPresenter> implements MyCon
 
     @Override
     protected void initData() {
-        presenter.getData();
+        presenter.getData(URLConstant.NEWSLIST);
     }
 
     @Override
@@ -48,14 +55,14 @@ public class NewsFragment extends BaseFragment<ImpNewPresenter> implements MyCon
     }
 
     @Override
-    public void onFail(String error) {
-        Log.e("TAG", "onFail: " + error);
-    }
-
-    @Override
     public void onSuccess(NewsBean newsBean) {
         List<NewsBean.NewsDTO> news = newsBean.getNews();
         list.addAll(news);
         adapter.notifyDataSetChanged();
+    }
+
+    @Override
+    public void onFail(String error) {
+        Log.e("TAG", "onFail: " + error);
     }
 }
