@@ -3,6 +3,7 @@ package com.example.app2.view.fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.View;
 
 import com.example.app2.R;
@@ -13,8 +14,9 @@ import com.example.app2.contract.MyContract;
 import com.example.app2.presenter.ImpQueryPresenter;
 
 import java.util.ArrayList;
+import java.util.List;
 
-public class QueryFragment extends BaseFragment<ImpQueryPresenter> implements MyContract.InQueryView {
+public class QueryFragment extends BaseFragment<ImpQueryPresenter> implements MyContract.InView<QueryBean> {
 
     private RecyclerView recy;
     private ArrayList<QueryBean.StudenlistDTO> list;
@@ -27,6 +29,7 @@ public class QueryFragment extends BaseFragment<ImpQueryPresenter> implements My
 
     @Override
     protected void initData() {
+        presenter.getData();
     }
 
     @Override
@@ -44,4 +47,15 @@ public class QueryFragment extends BaseFragment<ImpQueryPresenter> implements My
         return R.layout.fragment_news;
     }
 
+    @Override
+    public void onSuccess(QueryBean queryBean) {
+        List<QueryBean.StudenlistDTO> studenlist = queryBean.getStudenlist();
+        list.addAll(studenlist);
+        adapter.notifyDataSetChanged();
+    }
+
+    @Override
+    public void onFail(String error) {
+        Log.e("TAG", "onFail: " + error);
+    }
 }

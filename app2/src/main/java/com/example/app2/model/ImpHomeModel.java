@@ -6,11 +6,11 @@ import com.example.app2.utils.net.NetCallBack;
 import com.example.app2.utils.net.RetrofitUtils;
 import com.example.app2.utils.net.URLConstant;
 
-public class ImpHomeModel implements MyContract.InHomeModel {
+public class ImpHomeModel implements MyContract.InModel<BannerBean> {
 
     @Override
-    public void getData(NetCallBack<BannerBean> bannerBeanNetCallBack) {
+    public void getData(NetCallBack<BannerBean> callBack) {
         RetrofitUtils instance = RetrofitUtils.getInstance();
-        instance.get(URLConstant.BANNERLIST, bannerBeanNetCallBack);
+        instance.get(URLConstant.BANNERLIST, callBack);
     }
 }

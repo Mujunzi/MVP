@@ -23,7 +23,7 @@ import com.youth.banner.loader.ImageLoader;
 import java.util.ArrayList;
 import java.util.List;
 
-public class HomeActivity extends BaseActivity<MyContract.InHomePresenter> implements MyContract.InHomeView {
+public class HomeActivity extends BaseActivity<ImpHomePresenter> implements MyContract.InView<BannerBean> {
 
 
     private Banner banner;
@@ -61,7 +61,7 @@ public class HomeActivity extends BaseActivity<MyContract.InHomePresenter> imple
     }
 
     @Override
-    protected MyContract.InHomePresenter getPresenter() {
+    protected ImpHomePresenter getPresenter() {
         presenter = new ImpHomePresenter(this);
         return presenter;
     }
@@ -70,7 +70,6 @@ public class HomeActivity extends BaseActivity<MyContract.InHomePresenter> imple
     protected int getContentView() {
         return R.layout.activity_home;
     }
-
 
     @Override
     public void onSuccess(BannerBean bannerBean) {

@@ -6,10 +6,11 @@ import com.example.app2.utils.net.NetCallBack;
 import com.example.app2.utils.net.RetrofitUtils;
 import com.example.app2.utils.net.URLConstant;
 
-public class ImpNewModel implements MyContract.InNewsModel {
+public class ImpNewModel implements MyContract.InModel<NewsBean> {
 
     @Override
-    public void getData(NetCallBack<NewsBean> newsBeanNetCallBack) {
-        RetrofitUtils.getInstance().get(URLConstant.NEWSLIST, newsBeanNetCallBack);
+    public void getData(NetCallBack<NewsBean> callBack) {
+        RetrofitUtils instance = RetrofitUtils.getInstance();
+        instance.get(URLConstant.NEWSLIST, callBack);
     }
 }

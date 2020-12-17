@@ -16,7 +16,7 @@ import com.example.app2.presenter.ImpNewPresenter;
 import java.util.ArrayList;
 import java.util.List;
 
-public class NewsFragment extends BaseFragment<ImpNewPresenter> implements MyContract.InNewsView {
+public class NewsFragment extends BaseFragment<ImpNewPresenter> implements MyContract.InView<NewsBean> {
 
     private RecyclerView recy;
     private ArrayList<NewsBean.NewsDTO> list;

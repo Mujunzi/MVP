@@ -21,41 +21,17 @@ public class MyContract {
     public interface InLoginView {
     }
 
-    public interface InHomeModel {
-        void getData(NetCallBack<BannerBean> bannerBeanNetCallBack);
+    public interface InModel<B> {
+        void getData(NetCallBack<B> callBack);
     }
 
-    public interface InHomePresenter {
+    public interface InPresenter{
         void getData();
     }
 
-    public interface InHomeView {
-        void onSuccess(BannerBean bannerBean);
+    public interface InView<T> {
+        void onSuccess(T t);
 
         void onFail(String error);
-    }
-
-
-    public interface InNewsModel {
-        void getData(NetCallBack<NewsBean> newsBeanNetCallBack);
-    }
-
-    public interface InNewsPresenter {
-        void getData();
-    }
-
-    public interface InNewsView {
-        void onFail(String error);
-
-        void onSuccess(NewsBean newsBean);
-    }
-
-    public interface InQueryModel {
-    }
-
-    public interface InQueryPresenter {
-    }
-
-    public interface InQueryView {
     }
 }

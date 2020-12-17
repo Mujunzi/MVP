@@ -6,16 +6,15 @@ import com.example.app2.utils.net.NetCallBack;
 import com.example.app2.contract.MyContract;
 import com.example.app2.model.ImpHomeModel;
 
-public class ImpHomePresenter extends BasePresenter<MyContract.InHomeModel, MyContract.InHomeView> implements MyContract.InHomePresenter {
-    public ImpHomePresenter(MyContract.InHomeView view) {
+public class ImpHomePresenter extends BasePresenter<MyContract.InModel<BannerBean>, MyContract.InView> implements MyContract.InPresenter {
+    public ImpHomePresenter(MyContract.InView view) {
         super(view);
     }
 
     @Override
-    protected MyContract.InHomeModel getModel() {
+    protected MyContract.InModel<BannerBean> getModel() {
         return new ImpHomeModel();
     }
-
 
     @Override
     public void getData() {
