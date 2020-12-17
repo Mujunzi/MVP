@@ -10,7 +10,6 @@ import androidx.viewpager.widget.ViewPager;
 import com.bumptech.glide.Glide;
 import com.example.app2.R;
 import com.example.app2.adapter.FVAdapter;
-import com.example.app2.api.MyApi;
 import com.example.app2.base.BaseActivity;
 import com.example.app2.bean.BannerBean;
 import com.example.app2.contract.MyContract;
@@ -23,15 +22,6 @@ import com.youth.banner.loader.ImageLoader;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import io.reactivex.Observer;
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.annotations.NonNull;
-import io.reactivex.disposables.Disposable;
-import io.reactivex.schedulers.Schedulers;
-import retrofit2.Retrofit;
-import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 public class HomeActivity extends BaseActivity<MyContract.InHomePresenter> implements MyContract.InHomeView {
 
@@ -49,33 +39,18 @@ public class HomeActivity extends BaseActivity<MyContract.InHomePresenter> imple
 
     @Override
     protected void initData() {
-        initBanner();
         list = new ArrayList<>();
         title = new ArrayList<>();
-
         newsFragment = new NewsFragment();
         queryFragment = new QueryFragment();
-
         list.add(newsFragment);
         list.add(queryFragment);
-
         title.add("学校新闻");
         title.add("班级成绩查询");
-
         adapter = new FVAdapter(getSupportFragmentManager(), list, title);
-
         vp.setAdapter(adapter);
-
         tab.setupWithViewPager(vp);
-    }
-
-    private void initBanner() {
-        Log.e("TAG", "initBanner");
-        bannerList = new ArrayList<>();
-
-        presenter.banner();
-        BannerBean bean = presenter.getData();
-        bannerList.addAll(bean.getBannerlist());
+        presenter.getData();
     }
 
     @Override
@@ -96,20 +71,23 @@ public class HomeActivity extends BaseActivity<MyContract.InHomePresenter> imple
         return R.layout.activity_home;
     }
 
+
     @Override
-    public void banner(BannerBean bannerBean) {
-        Log.e("TAG", "banner");
-        List<BannerBean.BannerlistDTO> dtoList = bannerBean.getBannerlist();
-        bannerList.addAll(dtoList);
+    public void onSuccess(BannerBean bannerBean) {
+        bannerList = new ArrayList<>();
+        bannerList.addAll(bannerBean.getBannerlist());
         banner.setImages(bannerList)
                 .setImageLoader(new ImageLoader() {
                     @Override
                     public void displayImage(Context context, Object path, ImageView imageView) {
-                        Log.e("TAG", "displayImage");
-                        BannerBean.BannerlistDTO banner = (BannerBean.BannerlistDTO) path;
-                        Glide.with(HomeActivity.this).load(banner.getImageurl()).into(imageView);
+                        BannerBean.BannerlistDTO bannerlistDTO = (BannerBean.BannerlistDTO) path;
+                        Glide.with(HomeActivity.this).load(bannerlistDTO.getImageurl()).into(imageView);
                     }
-                })
-                .start();
+                }).start();
+    }
+
+    @Override
+    public void onFail(String error) {
+        Log.e("TAG", "onFail: " + error);
     }
 }

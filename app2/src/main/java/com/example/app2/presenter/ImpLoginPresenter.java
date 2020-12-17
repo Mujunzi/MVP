@@ -1,7 +1,6 @@
 package com.example.app2.presenter;
 
 import com.example.app2.base.BasePresenter;
-import com.example.app2.callback.MyCallBack;
 import com.example.app2.contract.MyContract;
 import com.example.app2.model.ImpLoginModel;
 

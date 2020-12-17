@@ -2,7 +2,7 @@ package com.example.app2.presenter;
 
 import com.example.app2.base.BasePresenter;
 import com.example.app2.bean.NewsBean;
-import com.example.app2.callback.MyCallBack;
+import com.example.app2.utils.net.NetCallBack;
 import com.example.app2.contract.MyContract;
 import com.example.app2.model.ImpNewModel;
 
@@ -20,11 +20,16 @@ public class ImpNewPresenter extends BasePresenter<MyContract.InNewsModel, MyCon
 
 
     @Override
-    public void news() {
-        model.news(new MyCallBack<NewsBean>() {
+    public void getData() {
+        model.getData(new NetCallBack<NewsBean>() {
             @Override
-            public void getData(NewsBean newsBean) {
-                view.news(newsBean);
+            public void onSuccess(NewsBean newsBean) {
+                view.onSuccess(newsBean);
+            }
+
+            @Override
+            public void onFail(String error) {
+                view.onFail(error);
             }
         });
     }

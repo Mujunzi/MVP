@@ -3,7 +3,7 @@ package com.example.app2.contract;
 import com.example.app2.bean.BannerBean;
 import com.example.app2.bean.NewsBean;
 import com.example.app2.bean.QueryBean;
-import com.example.app2.callback.MyCallBack;
+import com.example.app2.utils.net.NetCallBack;
 
 public class MyContract {
     public interface InLoginModel {
@@ -12,60 +12,50 @@ public class MyContract {
         boolean getData();
     }
 
-    public interface InLoginView {
-
-    }
-
     public interface InLoginPresenter {
         void login(String name, String pwd);
 
         boolean getData();
     }
 
-
-
-
-    public interface InHomeModel {
-        void banner(MyCallBack<BannerBean> callBack);
-
-        BannerBean getData();
+    public interface InLoginView {
     }
 
-    public interface InHomeView {
-        void banner(BannerBean bannerBean);
+    public interface InHomeModel {
+        void getData(NetCallBack<BannerBean> bannerBeanNetCallBack);
     }
 
     public interface InHomePresenter {
-        void banner();
-
-        BannerBean getData();
+        void getData();
     }
 
+    public interface InHomeView {
+        void onSuccess(BannerBean bannerBean);
 
-
+        void onFail(String error);
+    }
 
 
     public interface InNewsModel {
-        void news(MyCallBack<NewsBean> callBack);
-    }
-
-    public interface InNewsView {
-        void news(NewsBean newsBean);
+        void getData(NetCallBack<NewsBean> newsBeanNetCallBack);
     }
 
     public interface InNewsPresenter {
-        void news();
+        void getData();
+    }
+
+    public interface InNewsView {
+        void onFail(String error);
+
+        void onSuccess(NewsBean newsBean);
     }
 
     public interface InQueryModel {
-        void query(MyCallBack<QueryBean> callBack);
-    }
-
-    public interface InQueryView {
-        void query(QueryBean queryBean);
     }
 
     public interface InQueryPresenter {
-        void query();
+    }
+
+    public interface InQueryView {
     }
 }
