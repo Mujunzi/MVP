@@ -17,11 +17,13 @@ public class ImpLoginPresenter extends BasePresenter<MyContract.InLoginModel, My
 
     @Override
     public void login(String name, String pwd) {
-        model.login(name, pwd, new MyCallBack<Boolean>() {
-            @Override
-            public void getData(Boolean aBoolean) {
-                view.isLogin(aBoolean);
-            }
-        });
+        model.login(name, pwd);
+
+    }
+
+    @Override
+    public boolean getData() {
+        boolean isSuccess = model.getData();
+        return isSuccess;
     }
 }

@@ -21,6 +21,7 @@ public class LoginActivity extends BaseActivity<MyContract.InLoginPresenter> imp
 
     @Override
     protected void initData() {
+
     }
 
     @Override
@@ -50,13 +51,14 @@ public class LoginActivity extends BaseActivity<MyContract.InLoginPresenter> imp
                 String name = et_name.getText().toString();
                 String pwd = et_pwd.getText().toString();
                 presenter.login(name, pwd);
+                getData();
                 break;
         }
     }
 
-    @Override
-    public void isLogin(boolean isLogin) {
-        if (isLogin) {
+    private void getData() {
+        boolean isSuccess = presenter.getData();
+        if (isSuccess) {
             Toast.makeText(this, "登陆成功！", Toast.LENGTH_SHORT).show();
             startActivity(new Intent(LoginActivity.this, HomeActivity.class));
         } else {

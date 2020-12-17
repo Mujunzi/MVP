@@ -18,6 +18,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ImpHomeModel implements MyContract.InHomeModel {
 
+    private BannerBean bean;
+
     @Override
     public void banner(MyCallBack<BannerBean> callBack) {
         new Retrofit.Builder()
@@ -37,7 +39,8 @@ public class ImpHomeModel implements MyContract.InHomeModel {
 
                     @Override
                     public void onNext(@NonNull BannerBean bannerBean) {
-                        callBack.getData(bannerBean);
+                        bean = bannerBean;
+//                        callBack.getData(bannerBean);
                     }
 
                     @Override
@@ -50,5 +53,10 @@ public class ImpHomeModel implements MyContract.InHomeModel {
 
                     }
                 });
+    }
+
+    @Override
+    public BannerBean getData() {
+        return bean;
     }
 }

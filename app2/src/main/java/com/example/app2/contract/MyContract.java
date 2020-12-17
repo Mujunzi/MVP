@@ -6,22 +6,29 @@ import com.example.app2.bean.QueryBean;
 import com.example.app2.callback.MyCallBack;
 
 public class MyContract {
-    public interface InLoginModel<T> {
-        void login(String name, String pwd, MyCallBack<Boolean> callBack);
+    public interface InLoginModel {
+        void login(String name, String pwd);
 
-        boolean getData(Boolean isSuccess);
+        boolean getData();
     }
 
     public interface InLoginView {
-        void isLogin(boolean isLogin);
+
     }
 
     public interface InLoginPresenter {
         void login(String name, String pwd);
+
+        boolean getData();
     }
+
+
+
 
     public interface InHomeModel {
         void banner(MyCallBack<BannerBean> callBack);
+
+        BannerBean getData();
     }
 
     public interface InHomeView {
@@ -30,7 +37,13 @@ public class MyContract {
 
     public interface InHomePresenter {
         void banner();
+
+        BannerBean getData();
     }
+
+
+
+
 
     public interface InNewsModel {
         void news(MyCallBack<NewsBean> callBack);

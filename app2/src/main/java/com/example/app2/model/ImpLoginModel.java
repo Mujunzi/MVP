@@ -5,21 +5,19 @@ import com.example.app2.contract.MyContract;
 
 public class ImpLoginModel implements MyContract.InLoginModel {
 
+    boolean isSuccess;
+
     @Override
-    public void login(String name, String pwd, MyCallBack<Boolean> callBack) {
+    public void login(String name, String pwd) {
         if (name.equals("H2003xs") && pwd.equals("H2003")) {
-//            callBack.getData(true);
-            getData(true);
+            isSuccess = true;
         } else {
-//            callBack.getData(false);
-            getData(false);
+            isSuccess = false;
         }
     }
 
     @Override
-    public boolean getData(Boolean isSuccess) {
+    public boolean getData() {
         return isSuccess;
     }
-
-
 }

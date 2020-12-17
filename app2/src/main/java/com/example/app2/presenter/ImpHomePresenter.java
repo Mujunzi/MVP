@@ -25,4 +25,9 @@ public class ImpHomePresenter extends BasePresenter<MyContract.InHomeModel, MyCo
             }
         });
     }
+
+    @Override
+    public BannerBean getData() {
+        return model.getData();
+    }
 }

@@ -74,6 +74,8 @@ public class HomeActivity extends BaseActivity<MyContract.InHomePresenter> imple
         bannerList = new ArrayList<>();
 
         presenter.banner();
+        BannerBean bean = presenter.getData();
+        bannerList.addAll(bean.getBannerlist());
     }
 
     @Override
