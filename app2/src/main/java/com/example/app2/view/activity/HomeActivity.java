@@ -25,8 +25,7 @@ import com.youth.banner.loader.ImageLoader;
 import java.util.ArrayList;
 import java.util.List;
 
-public class HomeActivity extends BaseActivity<ImpHomePresenter> implements MyContract.InView<BannerBean> {
-
+public class HomeActivity extends BaseActivity<ImpPresenter<BannerBean>> implements MyContract.InView<BannerBean> {
 
     private Banner banner;
     private TabLayout tab;
@@ -62,9 +61,15 @@ public class HomeActivity extends BaseActivity<ImpHomePresenter> implements MyCo
     }
 
     @Override
-    protected ImpHomePresenter getPresenter() {
-        return new ImpHomePresenter(this);
+    protected ImpPresenter<BannerBean> getPresenter() {
+        return new ImpPresenter<BannerBean>(this);
     }
+
+
+//    @Override
+//    protected ImpHomePresenter getPresenter() {
+//        return new ImpHomePresenter(this);
+//    }
 
     @Override
     protected int getContentView() {
