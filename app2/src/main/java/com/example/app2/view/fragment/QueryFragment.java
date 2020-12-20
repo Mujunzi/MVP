@@ -11,7 +11,6 @@ import com.example.app2.adapter.QueryRAdapter;
 import com.example.app2.base.BaseFragment;
 import com.example.app2.bean.QueryBean;
 import com.example.app2.contract.MyContract;
-import com.example.app2.presenter.ImpPresenter;
 import com.example.app2.presenter.ImpQueryPresenter;
 import com.example.app2.utils.net.URLConstant;
 

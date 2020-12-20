@@ -14,7 +14,6 @@ import com.example.app2.base.BaseActivity;
 import com.example.app2.bean.BannerBean;
 import com.example.app2.contract.MyContract;
 import com.example.app2.presenter.ImpHomePresenter;
-import com.example.app2.presenter.ImpPresenter;
 import com.example.app2.utils.net.URLConstant;
 import com.example.app2.view.fragment.NewsFragment;
 import com.example.app2.view.fragment.QueryFragment;
@@ -23,9 +22,8 @@ import com.youth.banner.Banner;
 import com.youth.banner.loader.ImageLoader;
 
 import java.util.ArrayList;
-import java.util.List;
 
-public class HomeActivity extends BaseActivity<ImpPresenter<BannerBean>> implements MyContract.InView<BannerBean> {
+public class HomeActivity extends BaseActivity<ImpHomePresenter> implements MyContract.InView<BannerBean> {
 
     private Banner banner;
     private TabLayout tab;
@@ -61,15 +59,9 @@ public class HomeActivity extends BaseActivity<ImpPresenter<BannerBean>> impleme
     }
 
     @Override
-    protected ImpPresenter<BannerBean> getPresenter() {
-        return new ImpPresenter<BannerBean>(this);
+    protected ImpHomePresenter getPresenter() {
+        return new ImpHomePresenter(this);
     }
-
-
-//    @Override
-//    protected ImpHomePresenter getPresenter() {
-//        return new ImpHomePresenter(this);
-//    }
 
     @Override
     protected int getContentView() {

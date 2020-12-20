@@ -12,7 +12,6 @@ import com.example.app2.base.BaseFragment;
 import com.example.app2.bean.NewsBean;
 import com.example.app2.contract.MyContract;
 import com.example.app2.presenter.ImpNewPresenter;
-import com.example.app2.presenter.ImpPresenter;
 import com.example.app2.utils.net.URLConstant;
 
 import java.util.ArrayList;
@@ -23,11 +22,6 @@ public class NewsFragment extends BaseFragment<ImpNewPresenter> implements MyCon
     private RecyclerView recy;
     private ArrayList<NewsBean.NewsDTO> list;
     private NewsRAdapter adapter;
-
-//    @Override
-//    protected ImpPresenter<NewsBean> getPresenter() {
-//        return new ImpPresenter<NewsBean>(this);
-//    }
 
     @Override
     protected ImpNewPresenter getPresenter() {

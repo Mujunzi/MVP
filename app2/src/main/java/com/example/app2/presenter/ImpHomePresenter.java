@@ -21,12 +21,12 @@ public class ImpHomePresenter extends BasePresenter<MyContract.InModel<BannerBea
         model.getData(url, new NetCallBack<BannerBean>() {
             @Override
             public void onSuccess(BannerBean bannerBean) {
-                view.onSuccess(bannerBean);
+
             }
 
             @Override
             public void onFail(String error) {
-                view.onFail(error);
+
             }
         });
     }

@@ -1,5 +1,6 @@
 package com.example.app2.contract;
 
+import com.example.app2.base.BaseView;
 import com.example.app2.bean.BannerBean;
 import com.example.app2.bean.NewsBean;
 import com.example.app2.bean.QueryBean;
@@ -18,7 +19,7 @@ public class MyContract {
         boolean getData();
     }
 
-    public interface InLoginView {
+    public interface InLoginView extends BaseView{
     }
 
     public interface InModel<B> {
@@ -29,7 +30,7 @@ public class MyContract {
         void getData(String url);
     }
 
-    public interface InView<T> {
+    public interface InView<T> extends BaseView{
         void onSuccess(T t);
 
         void onFail(String error);

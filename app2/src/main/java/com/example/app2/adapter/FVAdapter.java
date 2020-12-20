@@ -6,6 +6,8 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 
+import com.example.app2.R;
+
 import java.util.ArrayList;
 
 public class FVAdapter extends FragmentStatePagerAdapter {
