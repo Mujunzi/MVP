@@ -1,8 +1,12 @@
 package com.example.app2.bean;
 
+
+
+import com.example.mylibrary.base.BaseBean;
+
 import java.util.List;
 
-public class QueryBean {
+public class QueryBean extends BaseBean {
 
     public String getMessage() {
         return message;
@@ -38,7 +42,7 @@ public class QueryBean {
     private String code;
     private List<StudenlistDTO> studenlist;
 
-    public static class StudenlistDTO {
+    public static class StudenlistDTO extends BaseBean {
         public String getName() {
             return name;
         }

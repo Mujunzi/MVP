@@ -1,4 +1,6 @@
-package com.example.app2.utils.net;
+package com.example.mylibrary.utils.net;
+
+import androidx.annotation.NonNull;
 
 import com.google.gson.Gson;
 
@@ -9,7 +11,6 @@ import java.util.HashMap;
 
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.annotations.NonNull;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 import okhttp3.OkHttpClient;

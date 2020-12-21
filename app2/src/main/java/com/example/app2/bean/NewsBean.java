@@ -1,8 +1,11 @@
 package com.example.app2.bean;
 
+
+import com.example.mylibrary.base.BaseBean;
+
 import java.util.List;
 
-public class NewsBean {
+public class NewsBean extends BaseBean {
     public String getMessage() {
         return message;
     }
@@ -37,7 +40,7 @@ public class NewsBean {
     private String code;
     private List<NewsDTO> news;
 
-    public static class NewsDTO {
+    public static class NewsDTO extends BaseBean {
         public String getTile() {
             return tile;
         }

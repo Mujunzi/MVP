@@ -1,4 +1,4 @@
-package com.example.app2.utils.net;
+package com.example.mylibrary.utils.net;
 
 import java.util.HashMap;
 

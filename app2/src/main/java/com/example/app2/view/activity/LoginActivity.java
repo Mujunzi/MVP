@@ -7,9 +7,9 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.app2.R;
-import com.example.app2.base.BaseActivity;
 import com.example.app2.contract.MyContract;
 import com.example.app2.presenter.ImpLoginPresenter;
+import com.example.mylibrary.base.BaseActivity;
 
 public class LoginActivity extends BaseActivity<MyContract.InLoginPresenter> implements MyContract.InLoginView, View.OnClickListener {
 

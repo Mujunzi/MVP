@@ -1,11 +1,9 @@
-package com.example.app2.base;
+package com.example.mylibrary.base;
 
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-
-import com.example.app2.contract.MyContract;
 
 public abstract class BaseActivity<P> extends AppCompatActivity {
     protected P presenter;

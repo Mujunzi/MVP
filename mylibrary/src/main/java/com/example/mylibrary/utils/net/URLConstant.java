@@ -1,4 +1,4 @@
-package com.example.app2.utils.net;
+package com.example.mylibrary.utils.net;
 
 public class URLConstant {
     public static String BASEURL = "http://cdwan.cn:7000/exam2003/";

@@ -1,18 +1,18 @@
 package com.example.app2.view.fragment;
 
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.util.Log;
 import android.view.View;
 
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.example.app2.R;
 import com.example.app2.adapter.NewsRAdapter;
-import com.example.app2.base.BaseFragment;
 import com.example.app2.bean.NewsBean;
 import com.example.app2.contract.MyContract;
 import com.example.app2.presenter.ImpNewPresenter;
-import com.example.app2.utils.net.URLConstant;
+import com.example.mylibrary.base.BaseFragment;
+import com.example.mylibrary.utils.net.URLConstant;
 
 import java.util.ArrayList;
 import java.util.List;

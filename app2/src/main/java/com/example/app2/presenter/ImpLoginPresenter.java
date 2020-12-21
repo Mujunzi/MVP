@@ -1,8 +1,8 @@
 package com.example.app2.presenter;
 
-import com.example.app2.base.BasePresenter;
 import com.example.app2.contract.MyContract;
 import com.example.app2.model.ImpLoginModel;
+import com.example.mylibrary.base.BasePresenter;
 
 public class ImpLoginPresenter extends BasePresenter<MyContract.InLoginModel, MyContract.InLoginView> implements MyContract.InLoginPresenter {
     public ImpLoginPresenter(MyContract.InLoginView view) {

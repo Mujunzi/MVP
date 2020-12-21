@@ -1,4 +1,4 @@
-package com.example.app2.base;
+package com.example.mylibrary.base;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -8,8 +8,6 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-
-import com.example.app2.contract.MyContract;
 
 public abstract class BaseFragment<P> extends Fragment {
     protected P presenter;
